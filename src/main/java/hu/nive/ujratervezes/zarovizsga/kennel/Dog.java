@@ -5,7 +5,7 @@ public abstract class Dog {
     protected String name;
     protected int happiness;
 
-    protected Dog(String name) {
+    public Dog(String name) {
         this.name = name;
         this.happiness = 0;
     }
