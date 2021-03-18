@@ -11,7 +11,7 @@ public class DigitsCounter {
         }
         Set<Character> digits = new HashSet<>();
         for (char c : s.toCharArray()) {
-            if (c > '0' && c < '9') {
+            if (Character.isDigit(c)) {
                 digits.add(c);
             }
         }
