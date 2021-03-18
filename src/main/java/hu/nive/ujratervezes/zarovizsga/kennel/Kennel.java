@@ -31,11 +31,8 @@ public class Kennel {
     }
 
     public void playWith(String name, int hours) {
-        for (Dog dog : dogs) {
-            if (name.equals(dog.getName())) {
-                dog.play(hours);
-            }
-        }
+        Dog dog = findByName(name);
+        dog.play(hours);
     }
 
     public List<String> getHappyDogNames(int minHappiness) {

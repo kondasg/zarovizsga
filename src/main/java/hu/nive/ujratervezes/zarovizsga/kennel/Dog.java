@@ -2,7 +2,7 @@ package hu.nive.ujratervezes.zarovizsga.kennel;
 
 public abstract class Dog {
 
-    protected String name;
+    private String name;
     protected int happiness;
 
     public Dog(String name) {
@@ -18,7 +18,7 @@ public abstract class Dog {
         return happiness;
     }
 
-    abstract void feed();
+    protected abstract void feed();
 
-    abstract void play(int hours);
+    protected abstract void play(int hours);
 }
