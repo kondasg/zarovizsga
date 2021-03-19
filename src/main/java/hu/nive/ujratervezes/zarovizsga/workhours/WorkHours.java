@@ -15,8 +15,9 @@ public class WorkHours {
         try (BufferedReader reader = Files.newBufferedReader(Path.of(file))) {
             List<Work> works = new ArrayList<>();
             readLines(reader, works);
-            sortWorks(works);
-            return works.get(0).print();
+//            sortWorks(works);
+//            return works.get(0).print();
+            return minWork(works).print();
         } catch (IOException ioe) {
             throw new IllegalStateException("Can not read file", ioe);
         }
@@ -32,13 +33,25 @@ public class WorkHours {
         }
     }
 
-    private void sortWorks(List<Work> works) {
-        works.sort(new Comparator<Work>() {
-            @Override
-            public int compare(Work o1, Work o2) {
-                return o1.getWorkingHours() - o2.getWorkingHours();
+    private Work minWork(List<Work> works) {
+        Work minWork = works.get(0);
+        int minHour = works.get(0).getWorkingHours();
+        for (Work work : works) {
+            if (minHour > work.getWorkingHours()) {
+                minWork = work;
+                minHour = work.getWorkingHours();
             }
-        });
+        }
+        return minWork;
     }
+
+//    private void sortWorks(List<Work> works) {
+//        works.sort(new Comparator<Work>() {
+//            @Override
+//            public int compare(Work o1, Work o2) {
+//                return o1.getWorkingHours() - o2.getWorkingHours();
+//            }
+//        });
+//    }
 
 }
